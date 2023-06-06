@@ -1,0 +1,40 @@
+/* RESET */
+@import "./reset.css";
+
+
+/* COLORS */
+@import "./themes/variables.css";
+
+
+/* HEADER */
+@import "./modules/loader.css";
+@import "./layout/header.css";
+@import "./modules/nav.css";
+
+/* MAIN */
+@import "./layout/main.css";
+
+@import "./modules/hero.css";
+@import "./modules/carousel-items.css";
+@import "./modules/carousel.css";
+
+@import "./modules/table.css";
+@import "./modules/galery.css";
+@import "./modules/articles.css";
+@import "./modules/card.css";
+
+@import "./modules/form.css";
+@import "./modules/contact.css";
+
+/* FOOTER */
+@import "./layout/footer.css";
+@import "./modules/copyright.css";
+
+
+
+/* PLACEMENT */
+@import "./modules/grid.css";
+@import "./modules/flex.css";
+
+/* THEME color */
+@import "./themes/theme.css";

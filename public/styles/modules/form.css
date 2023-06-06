@@ -1,0 +1,62 @@
+textarea{
+    border: 5px solid ;
+    min-height: 12rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+.email-parent{
+    border: 2px solid ;
+    min-height: 2rem;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5em;
+}
+button{
+    margin-top: 1rem;
+    padding: 2rem 3rem;
+    display: inline;
+    border: none;
+    text-transform: uppercase;
+}
+
+input[type="email"] + label{
+    display: grid;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type="radio"] + label{
+    padding: 1rem 2rem;
+    margin: 0.6rem 0;
+    border: 1px solid;
+}
+
+input[type="radio"]:checked + label{
+    border: 0.2rem solid;
+    font-weight: 600;
+}
+
+button, label:hover{
+    cursor: pointer;
+}
+fieldset{
+    border: none;
+}
+
+label:first-child{
+    font-size: 3rem;
+    color: var(--text-2);
+    font-weight: bold;
+}
+
+.email-parent,
+form div:nth-last-child(3),
+form .choice-parent label{
+    display: grid;
+}
+
+.flex-space-beetween div{
+    margin: 1em 0;
+}
