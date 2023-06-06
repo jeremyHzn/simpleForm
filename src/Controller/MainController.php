@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Questions;
@@ -10,22 +12,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController extends AbstractController
+final class MainController extends AbstractController
 {
-    #[Route('/', name: 'app_main')]
-    public function index(Request $request, EntityManagerInterface $me): Response
+    #[Route(path: '/', name: 'app_main', methods: ['GET'])]
+    public function index(): Response
     {
         $question = new Questions();
 
-        $questionForm = $this->createForm(SatisfactionFormType::class, $question);
+        $questionForm = $this->createForm(
+            type: SatisfactionFormType::class,
+            data: $question
+        );
 
-        $questionForm->handleRequest($request);
-
-
-
-        return $this->render('main/index.html.twig', [
-            'questionForm' => $questionForm->createView(),
-        ]);
-
+        return $this->render(
+            view: 'main/index.html.twig',
+            parameters: [
+                'questionForm' => $questionForm->createView(),
+            ]
+        );
     }
 }
