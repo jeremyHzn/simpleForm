@@ -23,12 +23,14 @@ final class MainController extends AbstractController
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
             options:[
-                'action' => $this->generateUrl('app_main'),
+                'action' => $this->generateUrl(route:'app_main_post'),
                 'method' => 'POST',
             ]
         );
 
-        return $this->render(view: 'main/index.html.twig',);
+        return $this->render(view: 'main/index.html.twig', parameters: [
+            'questionForm' => $questionForm->createView()
+        ]);
     }
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
