@@ -15,7 +15,9 @@ class Questions
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private readonly string $email;
+    private string $email;
+
+
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $question1 = null;
@@ -26,17 +28,27 @@ class Questions
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $question3 = null;
 
-    public function __construct(string $email)
-    {
-        $this->email = $email;
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
 
     public function getQuestion1(): ?int
     {

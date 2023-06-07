@@ -21,7 +21,6 @@ final class MainController extends AbstractController
 
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
-            data: $question,
             options:[
                 'action' => $this->generateUrl('app_main'),
                 'method' => 'POST',
