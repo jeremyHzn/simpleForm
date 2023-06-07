@@ -18,8 +18,6 @@ final class MainController extends AbstractController
     public function getForm(): Response
     {
 
-        $question = new Questions();
-
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
             options:[
