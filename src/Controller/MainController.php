@@ -41,6 +41,13 @@ final class MainController extends AbstractController
         $questionForm->handleRequest($request);
 
         // make service of form
+        if ($questionForm->isValid() === false) {
+            $formErrorService->saveSubmittedDataInSession($questionForm->getData());
+
+            $formErrorService->addFormErrorsInSession($questionForm);
+
+            return $this->redirectToRoute('app_main');
+        }
 
 
         return $this->render(view: 'main/index.html.twig', parameters: [
