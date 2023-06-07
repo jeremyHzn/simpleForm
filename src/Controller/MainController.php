@@ -32,12 +32,19 @@ final class MainController extends AbstractController
     }
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function postForm()
+    public function postForm(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $question = new Questions();
-
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
         );
+
+        $questionForm->handleRequest($request);
+
+        // make service of form
+
+
+        return $this->render(view: 'main/index.html.twig', parameters: [
+            'questionForm' => $questionForm->createView()
+        ]);
     }
 }
