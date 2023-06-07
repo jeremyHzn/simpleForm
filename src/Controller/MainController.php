@@ -19,10 +19,13 @@ final class MainController extends AbstractController
     {
         $question = new Questions();
 
-        $questionForm = $this->createForm(
-            type: SatisfactionFormType::class,
-            data: $question
-        );
+        $questionForm = $this->createForm(SatisfactionFormType::class, [
+                'action' => $this->generateUrl('/'),
+                'method' => 'POST',
+            ]
+        )
+
+        ->getForm();
 
         return $this->render(
             view: 'main/index.html.twig',
