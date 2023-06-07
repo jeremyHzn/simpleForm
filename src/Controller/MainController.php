@@ -17,12 +17,7 @@ final class MainController extends AbstractController
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function getForm(): Response
     {
-        return $this->render(view: 'main/index.html.twig',);
-    }
 
-    #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function postForm()
-    {
         $question = new Questions();
 
         $questionForm = $this->createForm(
@@ -33,11 +28,16 @@ final class MainController extends AbstractController
             ]
         );
 
-        return $this->render(
-            view: 'main/index.html.twig',
-            parameters: [
-                'questionForm' => $questionForm->createView(),
-            ]
+        return $this->render(view: 'main/index.html.twig',);
+    }
+
+    #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
+    public function postForm()
+    {
+        $question = new Questions();
+
+        $questionForm = $this->createForm(
+            type: SatisfactionFormType::class,
         );
     }
 }
