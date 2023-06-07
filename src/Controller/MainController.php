@@ -15,7 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 final class MainController extends AbstractController
 {
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
-    public function index(): Response
+    public function getForm(): Response
+    {
+        return $this->render(view: 'main/index.html.twig',);
+    }
+
+    #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
+    public function postForm()
     {
         $question = new Questions();
 
