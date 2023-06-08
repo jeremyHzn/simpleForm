@@ -17,9 +17,9 @@ final class MainController extends AbstractController
 {
 
 
-    public function __construct(FormErrorInterface $formErrorService)
+    public function __construct(private FormErrorService $formErrorService)
     {
-        $this->formErrorService = $formErrorService;
+
     }
 
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
