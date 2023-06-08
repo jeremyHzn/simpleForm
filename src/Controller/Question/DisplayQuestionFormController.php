@@ -19,7 +19,7 @@ final class DisplayQuestionFormController extends AbstractController
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function __invoke(): Response
     {
-        $formErrorService = $this->createForm(
+        $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
             data: $this->formErrorService->getSubmittedDataFromSession(),
             options:[
@@ -29,10 +29,10 @@ final class DisplayQuestionFormController extends AbstractController
         );
 
         // form errror
-        $formErrorService->$this->addFormErrorsFromPreviousSubmittedDataIfExists($formErrorService);
+        $this->formErrorService->addFormErrorsFromPreviousSubmittedDataIfExists($questionForm);
 
         return $this->render(view: 'main/index.html.twig', parameters: [
-            'formErrorService' => $formErrorService->createView()
+            compact(var_name: 'questionForm')
         ]);
     }
 }
