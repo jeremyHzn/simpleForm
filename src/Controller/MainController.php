@@ -49,9 +49,9 @@ final class MainController extends AbstractController
 
         // make service of form
         if ($questionForm->isValid() === false) {
-            $formErrorService->saveSubmittedDataInSession($questionForm->getData());
+            $questionForm->saveSubmittedDataInSession($questionForm->getData());
 
-            $formErrorService->addFormErrorsInSession($questionForm);
+            $questionForm->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
         }
