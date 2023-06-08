@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Controller\FormErrorInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -13,6 +14,10 @@ final readonly class FormErrorService implements FormErrorInterface
 {
     private SessionInterface $session;
 
+    /**
+     * @param RequestStack $requestStack
+     * get session from request stack and assign it to $session to use methods from SessionInterface without passing it as a parameter
+     */
     public function __construct(private RequestStack $requestStack)
     {
         $this->session = $this
@@ -20,6 +25,10 @@ final readonly class FormErrorService implements FormErrorInterface
             ->getSession();
     }
 
+    /**
+     * @return array|null
+     * Returns the value requestStack of the session variable named 'submitted_data' as an array.
+     */
     public function getSubmittedDataFromSession(): ?array
     {
         return $this
@@ -29,6 +38,11 @@ final readonly class FormErrorService implements FormErrorInterface
                 );
     }
 
+    /**
+     * @param array $submittedData
+     * @return void
+     * Sets the value of the session variable named 'submitted_data' to the value of the $submittedData parameter.
+     */
     public function saveSubmittedDataInSession(array $submittedData): void
     {
         $this
@@ -39,6 +53,11 @@ final readonly class FormErrorService implements FormErrorInterface
             );
     }
 
+    /**
+     * @param FormInterface $form
+     * @return void
+     * Gets all errors from the form and its children and sets them in the session variable named 'form_errors'.
+     */
     public function addFormErrorsInSession(FormInterface $form): void
     {
         $formErrors = $form->getErrors(
@@ -69,6 +88,11 @@ final readonly class FormErrorService implements FormErrorInterface
             );
     }
 
+    /**
+     * @param FormInterface $form
+     * @return void
+     * Gets all errors from the session variable named 'form_errors' and adds them to the form.
+     */
     public function addFormErrorsFromPreviousSubmittedDataIfExists(FormInterface $form): void
     {
         $formErrors = $this
