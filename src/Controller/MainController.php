@@ -16,17 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 final class MainController extends AbstractController
 {
 
-
-    public function __construct(private FormErrorService $formErrorService)
-    {
-
-    }
+    public function __construct(private readonly FormErrorService $formErrorService) {}
 
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function getForm(): Response
     {
-
-
 
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
