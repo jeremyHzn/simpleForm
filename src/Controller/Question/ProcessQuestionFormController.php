@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller\Question;
 
 use App\Form\SatisfactionFormType;
+use App\Service\FormErrorService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ProcessQuestionFormController extends AbstractController
 {
+
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
     public function __invoke(Request $request): Response
     {
@@ -22,9 +24,9 @@ final class ProcessQuestionFormController extends AbstractController
 
         // make service of form
         if ($questionForm->isValid() === false) {
-            $questionForm->saveSubmittedDataInSession($questionForm->getData());
+            $questionForm->$this->saveSubmittedDataInSession($questionForm->getData());
 
-            $questionForm->addFormErrorsInSession($questionForm);
+            $questionForm->$this->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
         }

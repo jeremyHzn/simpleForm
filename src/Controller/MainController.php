@@ -31,7 +31,7 @@ final class MainController extends AbstractController
         );
 
         // form errror
-        $questionForm->addFormErrorsFromPreviousSubmittedDataIfExists($questionForm);
+        $questionForm->$this->addFormErrorsFromPreviousSubmittedDataIfExists($questionForm);
 
         return $this->render(view: 'main/index.html.twig', parameters: [
             'questionForm' => $questionForm->createView()
@@ -49,9 +49,9 @@ final class MainController extends AbstractController
 
         // make service of form
         if ($questionForm->isValid() === false) {
-            $questionForm->saveSubmittedDataInSession($questionForm->getData());
+            $questionForm->$this->saveSubmittedDataInSession($questionForm->getData());
 
-            $questionForm->addFormErrorsInSession($questionForm);
+            $questionForm->$this->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
         }
