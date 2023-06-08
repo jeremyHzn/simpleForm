@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Question;
+namespace App\Controller\Question;
 
 class ProcessQuestionFormController
 {
