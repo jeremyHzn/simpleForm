@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Entity\Questions;
 use App\Form\SatisfactionFormType;
 use App\Service\FormErrorService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,7 +35,7 @@ final class MainController extends AbstractController
     }
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function postForm(Request $request, EntityManagerInterface $entityManager): Response
+    public function postForm(Request $request): Response
     {
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
