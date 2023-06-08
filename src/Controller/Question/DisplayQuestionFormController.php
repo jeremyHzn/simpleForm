@@ -32,7 +32,7 @@ final class DisplayQuestionFormController extends AbstractController
         $this->formErrorService->addFormErrorsFromPreviousSubmittedDataIfExists($questionForm);
 
         return $this->render(view: 'main/index.html.twig', parameters: [
-            compact(var_name: 'questionForm')
+            'questionForm' => $questionForm->createView()
         ]);
     }
 }

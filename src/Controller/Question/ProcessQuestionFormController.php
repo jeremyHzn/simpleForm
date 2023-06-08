@@ -13,6 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ProcessQuestionFormController extends AbstractController
 {
 
+    public function __construct(private readonly FormErrorService $formErrorService) {}
+
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
     public function __invoke(Request $request): Response
     {
@@ -24,12 +26,12 @@ final class ProcessQuestionFormController extends AbstractController
 
         // make service of form
         if ($questionForm->isValid() === false) {
-            $questionForm->$this->saveSubmittedDataInSession($questionForm->getData());
+            $this->formErrorService->saveSubmittedDataInSession($questionForm->getData());
 
-            $questionForm->$this->addFormErrorsInSession($questionForm);
+            $this->formErrorService->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
         }
-
     }
+
 }

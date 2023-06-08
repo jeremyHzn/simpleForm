@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Questions;
+use App\Validator\Constraints\MustBeAValidEmailRequirements;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -20,6 +21,9 @@ class SatisfactionFormType extends AbstractType
                 options: [
                     'label' => 'Email',
                     "required" => false,
+                    'constraints' => [
+                        new MustBeAValidEmailRequirements()
+                    ],
                     'attr' => [
                         'placeholder' => 'Votre email',
                         'class' => 'email-parent'
