@@ -1,0 +1,31 @@
+/*  Theme Color */
+html {
+    background: var(--surface-1);
+    color: var(--text-1);
+}
+
+small {
+    color: var(--text-2);
+}
+label{
+    color: var(--swatch-10);
+}
+
+input[type="radio"] + label{
+    color: var(--text-1);
+    border-color: var(--swatch-5);
+}
+
+input[type="radio"]:checked + label{
+    border-color: var(--text-2);
+    color: var(--text-2);
+}
+
+textarea, .email-parent{
+    border-color: var(--text-2);
+}
+
+form > button {
+    background-color: var(--text-2);
+}
+
