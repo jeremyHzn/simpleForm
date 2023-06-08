@@ -8,7 +8,7 @@ use App\Form\SatisfactionFormType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DisplayQuestionFormController
+final class DisplayQuestionFormController
 {
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function __invoke(): Response
