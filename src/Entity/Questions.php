@@ -17,8 +17,6 @@ class Questions
     #[ORM\Column(length: 255)]
     private string $email;
 
-
-
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $question1 = null;
 
