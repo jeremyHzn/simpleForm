@@ -56,9 +56,5 @@ final class MainController extends AbstractController
             return $this->redirectToRoute('app_main');
         }
 
-
-        return $this->render(view: 'main/index.html.twig', parameters: [
-            'questionForm' => $questionForm->createView()
-        ]);
     }
 }
