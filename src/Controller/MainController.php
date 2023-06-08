@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Questions;
 use App\Form\SatisfactionFormType;
+use App\Service\FormErrorService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +15,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MainController extends AbstractController
 {
+
+
+    public function __construct(FormErrorInterface $formErrorService)
+    {
+        $this->formErrorService = $formErrorService;
+    }
+
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function getForm(): Response
     {
+
+
 
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
