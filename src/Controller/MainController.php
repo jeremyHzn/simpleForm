@@ -23,6 +23,7 @@ final class MainController extends AbstractController
 
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
+            data: $this->formErrorService->getSubmittedDataFromSession(),
             options:[
                 'action' => $this->generateUrl(route:'app_main_post'),
                 'method' => 'POST',
