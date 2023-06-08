@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller\Question;
 
 use App\Form\SatisfactionFormType;
@@ -9,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DisplayQuestionFormController
 {
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
-    public function getForm(): Response
+    public function __invoke(): Response
     {
 
         $questionForm = $this->createForm(

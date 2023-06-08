@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller\Question;
 
@@ -10,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProcessQuestionFormController
 {
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function postForm(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
