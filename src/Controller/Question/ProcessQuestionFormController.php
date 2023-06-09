@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ProcessQuestionFormController extends AbstractController
 {
 
-    public function __construct(private readonly FormErrorService $formErrorService) {}
+    public function __construct(private readonly FormErrorService $formErrorService, QuestionsRepository $questionsRepository) {}
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
     public function __invoke(Request $request, QuestionsRepository $questionsRepository): Response
@@ -34,9 +34,9 @@ final class ProcessQuestionFormController extends AbstractController
             return $this->redirectToRoute('app_main');
         }
 
-        $questionsRepository = new QuestionsRepository($questionsRepository);
+        $questionsRepository = new QuestionsRepository();
 
-
+        
     }
 
 }
