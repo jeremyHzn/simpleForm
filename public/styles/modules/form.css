@@ -34,8 +34,8 @@ input[type="radio"] + label{
 }
 
 input[type="radio"]:checked + label{
-    border: 0.2rem solid;
-    font-weight: 600;
+    border: 0.4rem solid;
+    font-weight: bold;
 }
 
 button, label:hover{

@@ -1,5 +1,5 @@
 html {
-    --hue: 90; /* change color of site | oklch.com */
+    --hue: 300; /* change color of site | oklch.com */
 
 
     --swatch-0: oklch(100% 0 var(--hue));

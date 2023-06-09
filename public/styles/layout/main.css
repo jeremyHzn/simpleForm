@@ -14,7 +14,9 @@ h1{
     background-size: 60%;
     animation: bg-animation 10s infinite;
 }
-
+div{
+    margin-bottom: 2rem;
+}
 h2{
     font-size: 3rem;
     color: var(--text-2);
