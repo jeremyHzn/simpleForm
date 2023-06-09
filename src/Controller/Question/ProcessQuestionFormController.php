@@ -33,10 +33,6 @@ final class ProcessQuestionFormController extends AbstractController
 
             return $this->redirectToRoute('app_main');
         }
-
-        $questionsRepository = new QuestionsRepository();
-
-        
     }
 
 }
