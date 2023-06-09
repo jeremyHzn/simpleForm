@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\QuestionsRepository;
+use App\Repository\QuestionRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: QuestionsRepository::class)]
+#[ORM\Entity(repositoryClass: QuestionRepository::class)]
 #[ORM\Table(name: 'questions')]
 class Question
 {
