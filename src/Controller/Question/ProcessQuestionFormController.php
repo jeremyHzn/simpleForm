@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller\Question;
 
 use App\Form\SatisfactionFormType;
+use App\Repository\QuestionsRepository;
 use App\Service\FormErrorService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ final class ProcessQuestionFormController extends AbstractController
     public function __construct(private readonly FormErrorService $formErrorService) {}
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request, QuestionsRepository $questionsRepository): Response
     {
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
@@ -32,6 +33,10 @@ final class ProcessQuestionFormController extends AbstractController
 
             return $this->redirectToRoute('app_main');
         }
+
+        $questionsRepository = new QuestionsRepository($questionsRepository);
+
+
     }
 
 }

@@ -1,8 +1,8 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Form;
 
-use App\Entity\Questions;
 use App\Validator\Constraints\MustBeAValidBoolChoiceRequirement;
 use App\Validator\Constraints\MustBeAValidEmailRequirements;
 use App\Validator\Constraints\MustBeAValidNoteRequirement;
@@ -13,10 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
-class SatisfactionFormType extends AbstractType
+
+final class SatisfactionFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
