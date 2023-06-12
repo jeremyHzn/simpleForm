@@ -47,7 +47,11 @@ final class ProcessQuestionFormController extends AbstractController
             'question3' => $question3,
         ] = $questionForm;
 
-        $questionForm->save($question, true);
+        $question->setEmail($email);
+        $question->setQuestion1($question1);
+        $question->setQuestion2($question2);
+        $question->setQuestion3($question3);
+
 
         return $question;
     }
