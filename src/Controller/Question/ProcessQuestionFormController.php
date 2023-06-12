@@ -36,7 +36,7 @@ final class ProcessQuestionFormController extends AbstractController
         }
 
     }
-    private function makeQuestion(QuestionRepository $questionForm): Question
+    private function makeQuestion(array $questionForm): Question
     {
         $question = new Question();
 
@@ -47,10 +47,11 @@ final class ProcessQuestionFormController extends AbstractController
             'question3' => $question3,
         ] = $questionForm;
 
-        $question->setEmail($email);
-        $question->setQuestion1($question1);
-        $question->setQuestion2($question2);
-        $question->setQuestion3($question3);
+        $question
+            ->setEmail($email)
+            ->setQuestion1($question1)
+            ->setQuestion2($question2)
+            ->setQuestion3($question3);
 
 
         return $question;
