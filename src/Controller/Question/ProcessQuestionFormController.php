@@ -8,6 +8,7 @@ use App\Form\SatisfactionFormType;
 use App\Repository\QuestionRepository;
 use App\Service\FormErrorService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +19,7 @@ final class ProcessQuestionFormController extends AbstractController
     public function __construct(private readonly FormErrorService $formErrorService,private readonly QuestionRepository $questionRepository) {}
 
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): RedirectResponse
     {
         $questionForm = $this->createForm(
             type: SatisfactionFormType::class,
@@ -36,9 +37,9 @@ final class ProcessQuestionFormController extends AbstractController
         }
 
         $question = $this->makeQuestion($questionForm->getData());
-        $this->questionRepository->save($question);
+        $this->questionRepository->save(entity:$question, flush: true);
 
-        return $this->redirectToRoute('app_main');
+        return $this->redirectToRoute(route:'app_main');
     }
 
     private function makeQuestion(array $questionForm): Question
