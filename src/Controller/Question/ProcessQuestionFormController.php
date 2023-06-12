@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Question;
 
+use App\Entity\Question;
 use App\Form\SatisfactionFormType;
 use App\Repository\QuestionRepository;
 use App\Service\FormErrorService;
@@ -33,5 +34,8 @@ final class ProcessQuestionFormController extends AbstractController
 
             return $this->redirectToRoute('app_main');
         }
+
+        $question = new QuestionRepository($questionForm);
+        $question->save($question, true);
     }
 }
