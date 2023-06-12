@@ -36,8 +36,15 @@ final class ProcessQuestionFormController extends AbstractController
             return $this->redirectToRoute('app_main');
         }
 
+
+        $this->addFlash(
+            type:'notice',
+            message:'Your changes were saved!'
+        );
+
         $question = $this->makeQuestion($questionForm->getData());
         $this->questionRepository->save(entity:$question, flush: true);
+
 
         return $this->redirectToRoute(route:'app_main');
     }

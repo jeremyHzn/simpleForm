@@ -22,8 +22,6 @@ I
 bin/console,2\b\2b22d59fcdaf24a6d2536513e514e77fc83391a3
 C
 tests/bootstrap.php,3\2\326979242ce2c18a934ad123c59abf3a9753ba46
-N
-templates/main/index.html.twig,e\5\e52eb820c0446471f105cfb13cd6a9bee82467dc
 G
 public/styles/style.css,5\5\558b0055278169a2ed00867557319387b5a736c3
 H
@@ -36,8 +34,6 @@ I
 composer.json,3\9\3957b91a0d8450cea0115cfd5af69eac90d75897
 N
 public/styles/themes/theme.css,a\f\af1647563bc96a8dea9511b81b85ba225dec22a8
-N
-templates/main/_form.html.twig,4\e\4eb1c54e4ea7a528804e3d3983852f922974aeba
 R
 "public/styles/themes/variables.css,d\d\ddf4bc49113a2aa1b6451bf30239852814451249
 M

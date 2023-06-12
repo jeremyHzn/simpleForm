@@ -8,5 +8,8 @@
     </header>
     <main>
         {{ include('main/_form.html.twig') }}
+        {% message in app.flashes %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
     </main>
 {% endblock %}
