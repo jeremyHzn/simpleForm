@@ -15,9 +15,9 @@ final class MustBeAValidBoolChoiceRequirement extends Compound
     {
         return [
             new Choice(choices: [
-                'Oui',
-                'Non',
-                'Ne sais pas'
+                true,
+                false,
+                null
             ]),
         ];
     }

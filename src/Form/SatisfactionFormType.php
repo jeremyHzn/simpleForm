@@ -58,9 +58,9 @@ final class SatisfactionFormType extends AbstractType
             ])
             ->add('question2', ChoiceType::class, [
                 'choices' => [
-                    'Oui' => 'Oui',
-                    'Non' => 'Non',
-                    'Ne sais pas' => 'Ne sais pas',
+                    'Oui' => true,
+                    'Non' => false,
+                    'Ne sais pas' => null,
                 ],
                 'attr' => [
                     'class' => 'choice-parent',

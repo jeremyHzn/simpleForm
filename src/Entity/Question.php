@@ -44,9 +44,11 @@ class Question
     /**
      * @param string $email
      */
-    public function setEmail(string $email): void
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
     public function getQuestion1(): ?int
