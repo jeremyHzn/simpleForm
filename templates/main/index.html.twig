@@ -7,9 +7,14 @@
         <h1>Questionnaire</h1>
     </header>
     <main>
-        {{ include('main/_form.html.twig') }}
-        {% message in app.flashes %}
-            <div class="message">{{ message }}</div>
+        {% for messages in app.flashes %}
+            {% for message in messages %}
+                <div class="notice-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
+        {{ include('main/_form.html.twig') }}
+
     </main>
 {% endblock %}

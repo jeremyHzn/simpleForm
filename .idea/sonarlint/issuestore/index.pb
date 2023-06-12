@@ -20,8 +20,6 @@ I
 config/packages/twig.yaml,8\a\8a5c55d47e428b829ef7645f00a0b768cef8a5bf
 ;
 bin/console,2\b\2b22d59fcdaf24a6d2536513e514e77fc83391a3
-G
-public/styles/style.css,5\5\558b0055278169a2ed00867557319387b5a736c3
 H
 templates/base.html.twig,f\f\ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
 C
@@ -32,12 +30,8 @@ I
 symfony.lock,e\1\e17766cca3407ba620a8cef1c14d37208a74e8a4
 =
 composer.json,3\9\3957b91a0d8450cea0115cfd5af69eac90d75897
-N
-public/styles/themes/theme.css,a\f\af1647563bc96a8dea9511b81b85ba225dec22a8
 R
 "public/styles/themes/variables.css,d\d\ddf4bc49113a2aa1b6451bf30239852814451249
-M
-public/styles/layout/main.css,0\f\0fe270a5526f659d7790d430340e5af52b70d283
 N
 public/styles/modules/form.css,d\5\d533f1edb7f3cd61ee08c26b290a6913f877052c
 U

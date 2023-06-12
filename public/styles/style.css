@@ -8,7 +8,7 @@
 
 /* HEADER */
 
-
+@import "modules/notice.css";
 
 /* MAIN */
 @import "./layout/main.css";
