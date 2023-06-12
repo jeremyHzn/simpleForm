@@ -20,7 +20,7 @@ final class SatisfactionFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class,
+            ->add(child:'email', type:EmailType::class,
                 options: [
                     'label' => 'Email',
                     "required" => false,
@@ -33,7 +33,7 @@ final class SatisfactionFormType extends AbstractType
                     ]
                 ]
             )
-            ->add('question1', ChoiceType::class, [
+            ->add('question1', type:ChoiceType::class, options:[
                 'choices' => [
                     '1' => 1,
                     '2' => 2,
@@ -56,7 +56,7 @@ final class SatisfactionFormType extends AbstractType
                 'multiple' => false,
                 'label' => 'Question 1',
             ])
-            ->add('question2', ChoiceType::class, [
+            ->add('question2', type:ChoiceType::class, options: [
                 'choices' => [
                     'Oui' => true,
                     'Non' => false,
@@ -66,14 +66,11 @@ final class SatisfactionFormType extends AbstractType
                     'class' => 'choice-parent',
                     'item'  => 'Oui'
                 ],
-                'constraints' => [
-                    new MustBeAValidBoolChoiceRequirement()
-                ],
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'Question 2',
             ])
-            ->add('question3',TextareaType::class, options: [
+            ->add('question3', type:TextareaType::class, options: [
                 'label' => 'Question 3',
                 'constraints' => [
                     new MustBeAValidTextAreaRequirement()
