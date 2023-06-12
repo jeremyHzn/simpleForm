@@ -36,7 +36,7 @@ final class ProcessQuestionFormController extends AbstractController
         }
 
         $question = $this->makeQuestion($questionForm->getData());
-        $questionRepository->save($question);
+        $this->questionRepository->save($question);
 
     }
     private function makeQuestion(array $questionForm): Question
