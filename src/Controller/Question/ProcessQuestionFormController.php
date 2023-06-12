@@ -34,7 +34,7 @@ final class ProcessQuestionFormController extends AbstractController
 
             return $this->redirectToRoute('app_main');
         }
-        $this->makeQuestion($questionForm->getData());
+        $question = $this->makeQuestion($questionForm->getData());
     }
     private function makeQuestion(array $questionForm): Question
     {
