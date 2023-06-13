@@ -16,72 +16,33 @@ class Question
     private ?int $id = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    public readonly string $email;
+    readonly string $email;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
-    private ?int $question1 = null;
+    readonly ?int $question1;
 
     #[ORM\Column(nullable: true)]
-    private ?bool $question2 = null;
+    readonly ?bool $question2;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $question3 = null;
+    readonly ?string $question3;
 
+    public function __construct(
+        string $email,
+        ?int $question1 = null,
+        ?bool $question2 = null,
+        ?string $question3 = null
+    )
+    {
+        $this->email = $email;
+        $this->question1 = $question1;
+        $this->question2 = $question2;
+        $this->question3 = $question3;
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getQuestion1(): ?int
-    {
-        return $this->question1;
-    }
-    /**
-     * @param int|null $question1
-     */
-    public function setQuestion1(?int $question1): self
-    {
-        $this->question1 = $question1;
-
-        return $this;
-    }
-    /**
-     * @return bool|null
-     */
-    public function isQuestion2(): ?bool
-    {
-        return $this->question2;
-    }
-
-    /**
-     * @param bool|null $question2
-     */
-    public function setQuestion2(?bool $question2): self
-    {
-        $this->question2 = $question2;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getQuestion3(): ?string
-    {
-        return $this->question3;
-    }
-
-    /**
-     * @param string|null $question3
-     */
-    public function setQuestion3(?string $question3): self
-    {
-        $this->question3 = $question3;
-
-        return $this;
-    }
 }
