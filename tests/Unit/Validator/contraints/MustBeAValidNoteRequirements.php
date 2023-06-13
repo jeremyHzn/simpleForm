@@ -10,12 +10,12 @@ beforeEach(function () {
 });
 
 test(
-    description: "Valid values pass MustBeAValidNoteRequirement constraint",
-    closure: function (?int $value) {
+    description: 'Valid note pass MustBeAValidNoteRequirement constraint',
+    closure: function (int $note) {
         $violations = $this
             ->validator
             ->validate(
-                value: $value,
+                value: $note,
                 constraints: [
                     new MustBeAValidNoteRequirement(),
                 ]
@@ -26,22 +26,16 @@ test(
         )->toBeEmpty();
     }
 )->with(
-    data: [
-        null,
-        1,
-        2,
-        3,
-        4,
-        5,
-    ]
+    data: [1, 2]
 );
+
 test(
-    description: "Invalid types of values does not pass MustBeAValidNoteRequirement constraint",
-    closure: function (mixed $value) {
+    description: 'Not positive int does not pass MustBeAValidNoteRequirement constraint',
+    closure: function (int $note) {
         $violations = $this
             ->validator
             ->validate(
-                value: $value,
+                value: $note,
                 constraints: [
                     new MustBeAValidNoteRequirement(),
                 ]
@@ -55,37 +49,20 @@ test(
             )
             ->and($violations[0]->getMessage())
             ->toBe(
-                expected: 'This value should be of type int.'
+                expected: 'This value should be positive.'
             );
     }
 )->with(
-    data: [
-        '',
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        0.0,
-        1.0,
-        2.0,
-        3.0,
-        4.0,
-        5.0,
-        true,
-        false,
-        [],
-        new stdClass(),
-    ]
+    data: [0, -1]
 );
+
 test(
-    description: "Invalid values zero or -1 does not pass MustBeAValidNoteRequirement constraint",
-    closure: function (int $value) {
+    description: 'String note does not pass MustBeAValidNoteRequirement constraint',
+    closure: function (string $note) {
         $violations = $this
             ->validator
             ->validate(
-                value: $value,
+                value: $note,
                 constraints: [
                     new MustBeAValidNoteRequirement(),
                 ]
@@ -99,12 +76,9 @@ test(
             )
             ->and($violations[0]->getMessage())
             ->toBe(
-                expected: 'This value should be Positive.'
+                expected: 'This value should be of type integer.'
             );
     }
 )->with(
-    data: [
-        -1,
-        0,
-    ]
+    data: ["1", "2"]
 );

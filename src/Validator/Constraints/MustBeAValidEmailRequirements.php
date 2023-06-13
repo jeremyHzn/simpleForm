@@ -20,7 +20,6 @@ final class MustBeAValidEmailRequirements extends Compound
         return [
             new NotBlank(),
             new Email(),
-            new Callback([UniqueEntityValidator::class, 'uniqueEmailValidation'])
         ];
     }
 }
