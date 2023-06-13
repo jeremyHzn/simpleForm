@@ -36,6 +36,11 @@ final readonly class FormErrorService implements FormErrorInterface
                 ->remove(
                     name: 'submitted_data',
                 );
+            if (is_array($submittedData) === false) {
+                return null;
+            }
+
+        return $submittedData;
     }
 
     /**

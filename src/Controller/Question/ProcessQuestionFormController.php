@@ -10,7 +10,6 @@ use App\Service\FormErrorService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class ProcessQuestionFormController extends AbstractController
@@ -29,11 +28,20 @@ final class ProcessQuestionFormController extends AbstractController
 
         // make service of form
         if ($questionForm->isValid() === false) {
-            $this->formErrorService->saveSubmittedDataInSession($questionForm->getData());
+            $submittedData = $questionForm->getData();
+
+            if (is_array($submittedData) === false) {
+                throw new \LogicException(
+                    message: 'Submitted data must be an array.'
+                );
+            }
+
+            $this->formErrorService->saveSubmittedDataInSession($submittedData);
 
             $this->formErrorService->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
+        }
         }
 
         $question = $this->makeQuestion($questionForm->getData());
