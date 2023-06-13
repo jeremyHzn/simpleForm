@@ -51,23 +51,33 @@ class Question
         return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getQuestion1(): ?int
     {
         return $this->question1;
     }
-
+    /**
+     * @param int|null $question1
+     */
     public function setQuestion1(?int $question1): self
     {
         $this->question1 = $question1;
 
         return $this;
     }
-
+    /**
+     * @return bool|null
+     */
     public function isQuestion2(): ?bool
     {
         return $this->question2;
     }
 
+    /**
+     * @param bool|null $question2
+     */
     public function setQuestion2(?bool $question2): self
     {
         $this->question2 = $question2;
@@ -75,11 +85,17 @@ class Question
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getQuestion3(): ?string
     {
         return $this->question3;
     }
 
+    /**
+     * @param string|null $question3
+     */
     public function setQuestion3(?string $question3): self
     {
         $this->question3 = $question3;

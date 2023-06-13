@@ -12,10 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class DisplayQuestionFormController extends AbstractController
 {
-
+    /**
+     * @param FormErrorService $formErrorService
+     */
     public function __construct(private readonly FormErrorService $formErrorService) {}
 
-
+    /**
+     * @return Response
+     */
     #[Route(path: '/', name: 'app_main', methods: ['GET'])]
     public function __invoke(): Response
     {

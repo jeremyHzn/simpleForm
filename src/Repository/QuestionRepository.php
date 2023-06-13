@@ -16,11 +16,19 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class QuestionRepository extends ServiceEntityRepository
 {
+    /**
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Question::class);
     }
 
+    /**
+     * @param Question $entity
+     * @param bool $flush
+     * @return void
+     */
     public function save(Question $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -30,6 +38,11 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param Question $entity
+     * @param bool $flush
+     * @return void
+     */
     public function remove(Question $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

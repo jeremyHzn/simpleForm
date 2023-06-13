@@ -9,6 +9,10 @@ use Symfony\Component\Validator\Constraints\Type;
 
 final class MustBeAValidTextAreaRequirement extends Compound
 {
+    /**
+     * @param array $options
+     * @return array|\Symfony\Component\Validator\Constraint[]
+     */
     protected function getConstraints(array $options): array
     {
         return [

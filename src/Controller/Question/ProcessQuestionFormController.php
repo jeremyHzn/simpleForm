@@ -12,11 +12,23 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class ProcessQuestionFormController
+ * @package App\Controller\Question
+ */
 final class ProcessQuestionFormController extends AbstractController
 {
 
+    /**
+     * @param FormErrorService $formErrorService
+     * @param QuestionRepository $questionRepository
+     */
     public function __construct(private readonly FormErrorService $formErrorService,private readonly QuestionRepository $questionRepository) {}
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     #[Route(path: '/', name: 'app_main_post', methods: ['POST'])]
     public function __invoke(Request $request): RedirectResponse
     {
@@ -26,25 +38,23 @@ final class ProcessQuestionFormController extends AbstractController
 
         $questionForm->handleRequest($request);
 
-        // make service of form
+        $submittedData = $questionForm->getData();
+
+        if (is_array($submittedData) === false) {
+            throw new \LogicException(
+                message: 'Submitted data must be an array.'
+            );
+        }
+
         if ($questionForm->isValid() === false) {
-            $submittedData = $questionForm->getData();
-
-            if (is_array($submittedData) === false) {
-                throw new \LogicException(
-                    message: 'Submitted data must be an array.'
-                );
-            }
-
             $this->formErrorService->saveSubmittedDataInSession($submittedData);
 
             $this->formErrorService->addFormErrorsInSession($questionForm);
 
             return $this->redirectToRoute('app_main');
         }
-        }
 
-        $question = $this->makeQuestion($questionForm->getData());
+        $question = $this->makeQuestion($submittedData);
         $this->questionRepository->save(entity:$question, flush: true);
 
         $this->addFlash(
@@ -55,6 +65,10 @@ final class ProcessQuestionFormController extends AbstractController
         return $this->redirectToRoute(route:'app_main');
     }
 
+    /**
+     * @param array $questionForm
+     * @return Question
+     */
     private function makeQuestion(array $questionForm): Question
     {
         $question = new Question();
