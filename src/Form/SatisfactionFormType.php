@@ -76,6 +76,8 @@ final class SatisfactionFormType extends AbstractType
             ])
             ->add('question3', type:TextareaType::class, options: [
                 'label' => 'Question 3',
+                'required' => false,
+
                 'constraints' => [
                     new MustBeAValidTextAreaRequirement()
                 ],
