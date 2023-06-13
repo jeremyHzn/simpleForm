@@ -31,14 +31,15 @@ final readonly class FormErrorService implements FormErrorInterface
      */
     public function getSubmittedDataFromSession(): ?array
     {
-        return $this
-                ->session
-                ->remove(
-                    name: 'submitted_data',
-                );
-            if (is_array($submittedData) === false) {
-                return null;
-            }
+        $submittedData = $this
+            ->session
+            ->remove(
+                name: 'submitted_data',
+            );
+
+        if (is_array($submittedData) === false) {
+            return null;
+        }
 
         return $submittedData;
     }
