@@ -16,7 +16,7 @@ class Question
     private ?int $id = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    private readonly string $email;
+    public readonly string $email;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $question1 = null;
@@ -31,24 +31,6 @@ class Question
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
     }
 
     /**
