@@ -48,9 +48,6 @@ final class QuestionRepositoryTest extends KernelTestCase
         $this->commonLogic();
     }
 
-    /**
-     * @depends test_question_instance_database_persistance_works
-     */
     public function test_question_instance_database_remove_works()
     {
         $questionFromDatabase = $this->commonLogic();

@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Functional\Controller;
-
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
