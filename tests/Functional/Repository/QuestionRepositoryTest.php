@@ -45,30 +45,7 @@ final class QuestionRepositoryTest extends KernelTestCase
 
     public function test_question_instance_database_persistance_works()
     {
-        $question = new Question(
-            email: self::EMAIL
-        );
-
-        /** @var QuestionRepository $questionRepository */
-        $this
-            ->questionRepository
-            ->save(
-                entity: $question,
-                flush: true
-            );
-
-        $questionFromDatabase = $this
-            ->questionRepository
-            ->findOneBy(
-                criteria: [
-                    'email' => self::EMAIL
-                ]
-            );
-
-        $this->assertSame(
-            expected: $question,
-            actual: $questionFromDatabase
-        );
+        $this->commonLogic();
     }
 
     /**
@@ -76,18 +53,7 @@ final class QuestionRepositoryTest extends KernelTestCase
      */
     public function test_question_instance_database_remove_works()
     {
-        $questionFromDatabase = $this
-            ->questionRepository
-            ->findOneBy(
-                criteria: [
-                    'email' => self::EMAIL
-                ]
-            );
-
-        $this->assertInstanceOf(
-            expected: Question::class,
-            actual: $questionFromDatabase
-        );
+        $questionFromDatabase = $this->commonLogic();
 
         $this
             ->questionRepository
@@ -108,5 +74,35 @@ final class QuestionRepositoryTest extends KernelTestCase
             expected: Question::class,
             actual: $questionFromDatabase
         );
+    }
+
+    private function commonLogic(): Question
+    {
+        $question = new Question(
+            email: self::EMAIL
+        );
+
+        /** @var QuestionRepositoryTest $questionRepository */
+        $this
+            ->questionRepository
+            ->save(
+                entity: $question,
+                flush: true
+            );
+
+        $questionFromDatabase = $this
+            ->questionRepository
+            ->findOneBy(
+                criteria: [
+                    'email' => self::EMAIL
+                ]
+            );
+
+        $this->assertSame(
+            expected: $question,
+            actual: $questionFromDatabase
+        );
+
+        return $questionFromDatabase;
     }
 }

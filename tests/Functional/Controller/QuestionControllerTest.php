@@ -19,6 +19,8 @@ final class QuestionControllerTest extends WebTestCase
 
     private const TOO_LONG_TEXT_MESSAGE = 'This value is too long. It should have 4000 characters or less.';
 
+    private const EMAIL_CANNOT_BE_USED_MESSAGE = 'The email "webtestcase@example.com" cannot be used. Please enter another email.';
+
     private ?KernelBrowser $client = null;
 
     private ?QuestionRepository $questionRepository = null;
@@ -228,6 +230,48 @@ final class QuestionControllerTest extends WebTestCase
 
     public function test_valid_data_submitted_should_result_on_redirection_to_the_form_with_flash_message_displayed(): void
     {
+        $this->commonLogic();
+    }
+
+    public function test_valid_data_submitted_with_existing_email_should_result_on_redirection_to_the_form_with_error_displayed_on_email_field(): void
+    {
+        $submittedDataFromForm = $this->commonLogic();
+
+        $crawler = $this
+            ->client
+            ->submitForm(
+                button: 'Envoyer',
+                fieldValues: $submittedDataFromForm
+            );
+
+        $this->assertResponseIsSuccessful();
+
+        $this->assertEquals(
+            expected: $submittedDataFromForm['satisfaction_form[email]'],
+            actual: $crawler
+                ->filter(
+                    selector: 'input[name="satisfaction_form[email]"]'
+                )
+                ->attr(
+                    attribute: 'value'
+                )
+        );
+
+        $this->assertStringContainsString(
+            needle: self::EMAIL_CANNOT_BE_USED_MESSAGE,
+            haystack: $crawler
+                ->filter(
+                    selector: 'ul li'
+                )
+                ->eq(
+                    position: 0
+                )
+                ->text()
+        );
+    }
+
+    private function commonLogic(): array
+    {
         $submittedDataFromForm = [
             'satisfaction_form[email]' => 'webtestcase@example.com',
             'satisfaction_form[question1]' => '1',
@@ -278,5 +322,7 @@ final class QuestionControllerTest extends WebTestCase
             expected: Question::class,
             actual: $questionInstance
         );
+
+        return $submittedDataFromForm;
     }
 }
