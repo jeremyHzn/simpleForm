@@ -7,6 +7,7 @@ use App\Validator\Constraints\MustBeAValidBoolChoiceRequirement;
 use App\Validator\Constraints\MustBeAValidEmailRequirements;
 use App\Validator\Constraints\MustBeAValidNoteRequirement;
 use App\Validator\Constraints\MustBeAValidTextAreaRequirement;
+use App\Validator\Constraints\MustNotAlreadyExistsInDatabase;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -29,7 +30,8 @@ final class SatisfactionFormType extends AbstractType
                     'label' => 'Email',
                     "required" => false,
                     'constraints' => [
-                        new MustBeAValidEmailRequirements()
+                        new MustBeAValidEmailRequirements(),
+                        new MustNotAlreadyExistsInDatabase()
                     ],
                     'attr' => [
                         'placeholder' => 'Votre email',
