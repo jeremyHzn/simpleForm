@@ -1,23 +1,19 @@
 html {
     --hue: 300; /* change color of site | oklch.com */
     --swatch-1: oklch(99% .05 var(--hue));
-    --swatch-2: oklch(90% .1 var(--hue));
-    --swatch-3: oklch(80% .2 var(--hue));
-    --swatch-4: oklch(67% .31 var(--hue));
-    --swatch-5: oklch(25% .2 var(--hue));
-    --swatch-6: oklch(13% .2 var(--hue));
-    --swatch-7: oklch(5% .1 var(--hue));
+    --swatch-2: oklch(80% .2 var(--hue));
+    --swatch-3: oklch(67% .5 var(--hue));
+    --swatch-4: oklch(5% .1 var(--hue));
 
-    --primary: var(--swatch-1);
-    --secondary: var(--swatch-4);
-    --text: var(--swatch-7);
+    --primary: var(--swatch-4);
+    --secondary: var(--swatch-3);
 
-    --gradient: linear-gradient(90deg, var(--swatch-3), var(--swatch-4),var(--swatch-3));
+    --gradient: linear-gradient(90deg, var(--swatch-2), var(--swatch-3),var(--swatch-2));
 }
 
 @media (prefers-color-scheme: light) {
     html {
-        --primary: var(--swatch-7);
-        --secondary: var(--swatch-4);
+        --primary: var(--swatch-1);
+        --secondary: var(--swatch-3);
     }
 }

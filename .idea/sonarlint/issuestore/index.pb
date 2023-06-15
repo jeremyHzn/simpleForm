@@ -12,8 +12,6 @@ N
 public/styles/modules/flex.css,9\f\9fa66818cbef85b77414b6b9e205f0847652a34e
 N
 public/styles/modules/grid.css,c\b\cb8fd8180929392a95ce384cab5da822b33d9f1c
-G
-public/styles/reset.css,d\9\d9b8b8519fd710124ffe2a1a3105f1092f450b86
 I
 config/packages/twig.yaml,8\a\8a5c55d47e428b829ef7645f00a0b768cef8a5bf
 ;
@@ -26,8 +24,6 @@ I
 symfony.lock,e\1\e17766cca3407ba620a8cef1c14d37208a74e8a4
 =
 composer.json,3\9\3957b91a0d8450cea0115cfd5af69eac90d75897
-N
-public/styles/modules/form.css,d\5\d533f1edb7f3cd61ee08c26b290a6913f877052c
 P
  src/Service/FormErrorService.php,1\8\18d3c1507e50265dc4c45617bab9678ebb25caaf
 N
@@ -52,14 +48,8 @@ G
 src/Entity/Question.php,8\4\848025e2f286f0b8cefff26336a75f9e7ba2e3ba
 h
 8vendor/symfony/validator/Constraints/UniqueValidator.php,6\8\68af23ff4784034b25bb013c613f1f4d40655079
-N
-public/styles/themes/theme.css,a\f\af1647563bc96a8dea9511b81b85ba225dec22a8
 B
 config/bundles.php,f\a\fa9a09a4e1ae4281250526d3dec214138beb5735
-T
-$migrations/Version20230614122710.php,f\d\fd8bbf28cf027f59de5ad783ff24962211c80f22
-R
-"public/styles/themes/variables.css,d\d\ddf4bc49113a2aa1b6451bf30239852814451249
 P
  templates/main/_notice.html.twig,d\1\d1a24075834af29ead92187f4ed50fab982879be
 N
