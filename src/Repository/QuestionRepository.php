@@ -51,4 +51,14 @@ class QuestionRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function findAllQuestion(): string
+    {
+        $findAll = $this->createQueryBuilder('q')
+            ->select(
+                select: 'q.email, q.question1, q.question2, q.question3',
+            );
+        $findAll = $findAll->getQuery()->getArrayResult();
+        return $findAll;
+    }
 }
