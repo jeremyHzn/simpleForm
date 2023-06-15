@@ -1,23 +1,30 @@
 /*  Theme Color */
 .notice-success {
-    color: var(--primary);
+    color: var(--white);
+    background-color: var(--vert);
 }
 
 html, small, label,label:first-child, input[type="radio"] + label, input[type="radio"]:checked + label, textarea, .email-parent {
-    color: var(--secondary);
+    color: var(--blue);
 }
 
-textarea, .email-parent, input[type="radio"] + label, input[type="radio"]:checked + label{
-    border-color: var(--secondary);
+textarea, .email-parent, input[type="radio"] + label{
+    border-color: var(--primary);
+    background-color: white;
+}
+input[type="radio"]:checked + label{
+    border-color: var(--oramge);
 }
 
-html, textarea, .email-parent{
+label  {
+    border-color: var(--primary);
+}
+
+form > button {
     background-color: var(--primary);
+    color: var(--white);
 }
-
-form > button, .notice-success  {
-    background-color: var(--secondary);
+form ul{
+    color: var(--white);
+    background-color: red;
 }
-
-
-

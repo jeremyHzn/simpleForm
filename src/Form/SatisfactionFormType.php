@@ -46,11 +46,6 @@ final class SatisfactionFormType extends AbstractType
                     '3' => 3,
                     '4' => 4,
                     '5' => 5,
-                    '6' => 6,
-                    '7' => 7,
-                    '8' => 8,
-                    '9' => 9,
-                    '10' => 10
                 ],
                 'attr' => [
                     'class' => 'note-parent flex-space-beetween'
@@ -60,7 +55,7 @@ final class SatisfactionFormType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                'label' => 'Question 1',
+                'label' => 'Question sur une note de 1 à 10',
             ])
             ->add('question2', type:ChoiceType::class, options: [
                 'choices' => [
@@ -74,12 +69,14 @@ final class SatisfactionFormType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                'label' => 'Question 2',
+                'label' => 'question à choix boléen',
             ])
             ->add('question3', type:TextareaType::class, options: [
-                'label' => 'Question 3',
+                'label' => 'Champ de type text pour donner des idées',
                 'required' => false,
-
+                'attr' => [
+                    'placeholder' => 'Ecrivez vos idées ici',
+                ],
                 'constraints' => [
                     new MustBeAValidTextAreaRequirement()
                 ],

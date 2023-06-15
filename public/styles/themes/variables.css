@@ -1,19 +1,15 @@
 html {
-    --hue: 300; /* change color of site | oklch.com */
-    --swatch-1: oklch(99% .05 var(--hue));
-    --swatch-2: oklch(80% .2 var(--hue));
-    --swatch-3: oklch(67% .5 var(--hue));
-    --swatch-4: oklch(5% .1 var(--hue));
-
-    --primary: var(--swatch-4);
-    --secondary: var(--swatch-3);
-
-    --gradient: linear-gradient(90deg, var(--swatch-2), var(--swatch-3),var(--swatch-2));
+    --blue: oklch(66% 0.14 253);
+    --black: rgb(4, 5, 19);
+    --white: rgb(255, 255, 255);
+    --oramge: rgb(255, 165, 0);
+    --vert: rgb(0, 128, 0);
+    --gradient: linear-gradient(45deg, var(--blue), var(--oramge) ,25%,var(--blue));
 }
 
 @media (prefers-color-scheme: light) {
     html {
-        --primary: var(--swatch-1);
-        --secondary: var(--swatch-3);
+        --primary: var(--blue);
+
     }
 }

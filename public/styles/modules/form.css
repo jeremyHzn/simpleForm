@@ -4,6 +4,7 @@ textarea{
     font-size: 1.5rem;
     padding: 0.5rem;
 }
+
 .email-parent{
     border: 2px solid ;
     min-height: 2rem;
@@ -39,15 +40,12 @@ input[type="radio"]:checked + label{
     font-weight: bold;
 }
 
-button, label:hover{
-    cursor: pointer;
-}
 fieldset{
     border: none;
 }
 
 label:first-child{
-    font-size: 3rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
@@ -59,4 +57,10 @@ form .choice-parent label{
 
 .flex-space-beetween div{
     margin: 1em 0;
+}
+
+form ul{
+    width: 98.2%;
+    list-style: none;
+    padding: 1rem 2rem;
 }
