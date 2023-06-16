@@ -32,3 +32,59 @@ h
 8vendor/symfony/validator/Constraints/UniqueValidator.php,6\8\68af23ff4784034b25bb013c613f1f4d40655079
 B
 config/bundles.php,f\a\fa9a09a4e1ae4281250526d3dec214138beb5735
+9
+	.env.test,c\5\c589161bbc055e8f5fc7ed13aae8551821ece4b6
+f
+6tests/Functional/Controller/QuestionControllerTest.php,2\a\2a52cd5045714947394d8c2e40a8684fbe332223
+T
+$migrations/Version20230615070238.php,6\1\61884ad3c9c0dcdbca3c10420125ea3f65a5141f
+t
+Dtests/Unit/Validator/Contraints/MustBeAValidTextAreaRequirements.php,5\b\5b2e496ef836580876a63aa26fcc95eac506f9fc
+p
+@tests/Unit/Validator/Contraints/MustBeAValidNoteRequirements.php,e\7\e7d678aee69c4c76d2c88d418ccce1bf3b17bc79
+f
+6tests/Functional/Repository/QuestionRepositoryTest.php,7\c\7cc1a83a381aa3283582f33680dfaecddc92ddfc
+A
+cypress.config.js,c\b\cb145b820b06c497f093abf819116482af263d56
+J
+cypress/e2e/question.cy.js,b\8\b8c1903e32b7168eb7ae608b81a419ac5a01b74b
+N
+public/styles/modules/grid.css,c\b\cb8fd8180929392a95ce384cab5da822b33d9f1c
+N
+public/styles/modules/flex.css,9\f\9fa66818cbef85b77414b6b9e205f0847652a34e
+P
+ public/styles/modules/notice.css,f\0\f0fb6f40dcc6fbaa7bd8a5306e9b22736225d87d
+R
+"public/styles/themes/variables.css,d\d\ddf4bc49113a2aa1b6451bf30239852814451249
+N
+public/styles/themes/theme.css,a\f\af1647563bc96a8dea9511b81b85ba225dec22a8
+P
+ templates/main/_notice.html.twig,d\1\d1a24075834af29ead92187f4ed50fab982879be
+N
+templates/main/_form.html.twig,4\e\4eb1c54e4ea7a528804e3d3983852f922974aeba
+P
+ config/packages/translation.yaml,c\7\c7b3dfc088a7c85e5aee83fc03d12b4572887bcb
+G
+public/styles/reset.css,d\9\d9b8b8519fd710124ffe2a1a3105f1092f450b86
+G
+public/styles/style.css,5\5\558b0055278169a2ed00867557319387b5a736c3
+M
+public/styles/layout/main.css,0\f\0fe270a5526f659d7790d430340e5af52b70d283
+N
+public/styles/modules/form.css,d\5\d533f1edb7f3cd61ee08c26b290a6913f877052c
+P
+ src/Service/FormErrorService.php,1\8\18d3c1507e50265dc4c45617bab9678ebb25caaf
+Q
+!src/Form/SatisfactionFormType.php,8\c\8c9ead4f0b76d566be793d3721f7ffc2f170bc49
+U
+%src/Controller/FormErrorInterface.php,7\7\77662bb6b6a982b5f6a4e3e23b098966f98c2556
+q
+Atests/Unit/Validator/Contraints/MustBeAValidEmailRequirements.php,0\7\0736396360e0ef9388363b57f6988847bbb80e05
+N
+tests/Unit/Entity/Question.php,b\7\b7fae1bc06fcd174bd8259df76e2bc3b5574dd50
+i
+9src/Controller/Question/ProcessQuestionFormController.php,f\1\f135887ad694afdbc37a23684634e1f0b5ccbafb
+G
+src/Entity/Question.php,8\4\848025e2f286f0b8cefff26336a75f9e7ba2e3ba
+H
+templates/base.html.twig,f\f\ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022

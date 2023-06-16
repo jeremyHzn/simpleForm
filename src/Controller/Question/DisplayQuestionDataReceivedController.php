@@ -17,7 +17,7 @@ final class DisplayQuestionDataReceivedController extends AbstractController
     {
 
         return $this->render(view: 'response/index.html.twig', parameters: [
-                "response" => $this->questionRepository->findAllQuestion()
+                "responses" => $this->questionRepository->findAllQuestion()
             ]
         );
     }

@@ -1,1 +1,6 @@
-{{ response }}
+{% for questionDatum in responses %}
+    {% for key, value in questionDatum %}
+        {{ key }} : {{ value|default('null') }}
+    {% endfor %}
+    <br>
+{% endfor %}
