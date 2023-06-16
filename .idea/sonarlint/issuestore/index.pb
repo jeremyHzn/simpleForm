@@ -90,17 +90,3 @@ i
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 H
 templates/base.html.twig,f\f\ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
-G
-public/styles/style.css,5\5\558b0055278169a2ed00867557319387b5a736c3
-O
-public/styles/modules/table.css,6\6\6684388e2423cfeac95f6413607aa65ed925d289
-R
-"templates/response/index.html.twig,3\0\3043879217b1f8b24c4d1d2356214050b49c976e
-q
-Asrc/Controller/Question/DisplayQuestionDataReceivedController.php,0\9\09ed569b1e16ddc4e35f51e153e6b1113e625002
-U
-%src/Repository/QuestionRepository.php,7\7\77a7989b63dd472eb2deab098b3e307ba830e834
-R
-"templates/response/_list.html.twig,c\0\c0ff4ef9a56eff6fcfc8141c19478dd0e6cd018c
-N
-templates/main/index.html.twig,e\5\e52eb820c0446471f105cfb13cd6a9bee82467dc
