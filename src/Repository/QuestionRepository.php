@@ -52,14 +52,25 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllQuestion(): array
+    public function findAllQuestion1AndQuestion2Count(): array
     {
         return $this
             ->createQueryBuilder('q')
-            ->select(
-                select: 'q.email, q.question1, q.question2, q.question3',
-            )
-            ->getQuery()
-            ->getArrayResult();
-    }
+            ->select('
+            COUNT(q.email) AS email_count,
+            SUM(CASE WHEN q.question1 = 1 THEN 1 ELSE 0 END) AS question1_1_count,
+            SUM(CASE WHEN q.question1 = 2 THEN 1 ELSE 0 END) AS question1_2_count,
+            SUM(CASE WHEN q.question1 = 3 THEN 1 ELSE 0 END) AS question1_3_count,
+            SUM(CASE WHEN q.question1 = 4 THEN 1 ELSE 0 END) AS question1_4_count,
+            SUM(CASE WHEN q.question1 = 5 THEN 1 ELSE 0 END) AS question1_5_count,
+            SUM(CASE WHEN q.question2 = true THEN 1 ELSE 0 END) AS question2_yes_count,
+            SUM(CASE WHEN q.question2 = false THEN 1 ELSE 0 END) AS question2_no_count,
+            COUNT(q) - COUNT(q.question2) AS question2_null_count
+            ')
+        ->getQuery()
+        ->getArrayResult();
+}
+
+
+
 }

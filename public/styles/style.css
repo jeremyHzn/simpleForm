@@ -7,7 +7,6 @@
 
 
 /* HEADER */
-
 @import "modules/notice.css";
 
 /* MAIN */
@@ -25,6 +24,7 @@
 
 
 /* PLACEMENT */
+@import "./modules/table.css";
 @import "./modules/grid.css";
 @import "./modules/flex.css";
 

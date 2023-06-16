@@ -1,6 +1,14 @@
-{% for questionDatum in responses %}
-    {% for key, value in questionDatum %}
-        {{ key }} : {{ value|default('null') }}
-    {% endfor %}
-    <br>
+{% for response in responses %}
+    nombre de réponses : {{ response.email_count }} <br>
+    notes à 1 :{{ response.question1_1_count }} <br>
+    notes à 2 :{{ response.question1_2_count }} <br>
+    notes à 3 :{{ response.question1_3_count }} <br>
+    notes à 4 :{{ response.question1_4_count }} <br>
+    notes à 5 :{{ response.question1_5_count }} <br>
+    notes oui :{{ response.question2_yes_count }} <br>
+    notes non :{{ response.question2_no_count }} <br>
+    notes idk :{{ response.question2_null_count }} <br>
 {% endfor %}
+
+
+
