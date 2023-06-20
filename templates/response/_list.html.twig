@@ -1,13 +1,86 @@
 {% for response in responses %}
-    nombre de réponses : {{ response.email_count }} <br>
-    notes à 1 :{{ response.question1_1_count }} <br>
-    notes à 2 :{{ response.question1_2_count }} <br>
-    notes à 3 :{{ response.question1_3_count }} <br>
-    notes à 4 :{{ response.question1_4_count }} <br>
-    notes à 5 :{{ response.question1_5_count }} <br>
-    notes oui :{{ response.question2_yes_count }} <br>
-    notes non :{{ response.question2_no_count }} <br>
-    notes idk :{{ response.question2_null_count }} <br>
+    <div class="card text-bg-light text-center m-2">
+        <div class="card-header">Nombre de réponses</div>
+        <div class="card-body">
+            <p class="card-text">{{ response.email_count }}</p>
+        </div>
+    </div>
+    <div class="card text-bg-light text-center m-2">
+        <div class="card-header">
+            Réponses question 1
+        </div>
+        <div class="d-flex flex-row">
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">1</div>
+                <div class="card-body">{{ response.question1_1_count }}</div>
+            </div>
+        </div>
+        <div class="card-body  text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">2</div>
+                <div class="card-body">{{ response.question1_2_count }}</div>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">3</div>
+                <div class="card-body">{{ response.question1_3_count }}</div>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">4</div>
+                <div class="card-body">{{ response.question1_4_count }}</div>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">5</div>
+                <div class="card-body">{{ response.question1_5_count }}</div>
+            </div>
+        </div>
+        </div>
+    </div>
+<div class="card text-bg-light text-center m-2">
+    <div class="card-header">
+        Réponses question 2
+    </div>
+    <div class="d-flex flex-row">
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">Oui</div>
+                <div class="card-body">{{ response.question2_yes_count }}</div>
+            </div>
+        </div>
+        <div class="card-body  text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">Non</div>
+                <div class="card-body">{{ response.question2_no_count }}</div>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <div class="card text-bg-light">
+                <div class="card-header">Je sais pas</div>
+                <div class="card-body">{{ response.question2_null_count }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="card text-bg-light text-center m-2">
+        <div class="card-header">
+            Réponses question 3
+        </div>
+
+        <div class="card-body text-start">
+            <ul class="list-group">
+                {% for comment in comments %}
+                    <li class="list-group-item">{{ comment.question3 }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
 {% endfor %}
 
 

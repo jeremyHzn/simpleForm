@@ -29,13 +29,14 @@ final class SatisfactionFormType extends AbstractType
                 options: [
                     'label' => 'Email',
                     "required" => false,
+
                     'constraints' => [
                         new MustBeAValidEmailRequirements(),
                         new MustNotAlreadyExistsInDatabase()
                     ],
                     'attr' => [
                         'placeholder' => 'Votre email',
-                        'class' => 'email-parent'
+                        'class' => 'form-control'
                     ]
                 ]
             )
@@ -48,7 +49,7 @@ final class SatisfactionFormType extends AbstractType
                     '5' => 5,
                 ],
                 'attr' => [
-                    'class' => 'note-parent flex-space-beetween'
+                    'class' => 'form-check'
                 ],
                 "constraints" => [
                     new MustBeAValidNoteRequirement(),
@@ -64,18 +65,19 @@ final class SatisfactionFormType extends AbstractType
                     'Ne sais pas' => null,
                 ],
                 'attr' => [
-                    'class' => 'choice-parent',
+                    'class' => 'form-check',
                     'item'  => 'Oui'
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                'label' => 'question à choix boléen',
+                'label' => 'Question à choix boléen',
             ])
             ->add('question3', type:TextareaType::class, options: [
                 'label' => 'Champ de type text pour donner des idées',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Ecrivez vos idées ici',
+                    'class' => 'form-control'
                 ],
                 'constraints' => [
                     new MustBeAValidTextAreaRequirement()

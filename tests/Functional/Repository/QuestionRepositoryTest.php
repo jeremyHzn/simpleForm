@@ -9,6 +9,7 @@ use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
+
 final class QuestionRepositoryTest extends KernelTestCase
 {
     private const EMAIL = 'test@example.com';
@@ -102,4 +103,47 @@ final class QuestionRepositoryTest extends KernelTestCase
 
         return $questionFromDatabase;
     }
+
+
+    public function findAllQuestionAndCountReponse(): array
+    {
+        return [
+            ' test of you want' => [
+                1,
+                2,
+            ],
+            'test result you want ' => [
+                2,
+                3,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider test_find_all_question_and_count_reponse
+     */
+    public function test_find_all_question_and_count_reponse()
+    {
+        $questionFromDatabase = $this->commonLogic();
+
+        $questionFromDatabase = $this
+            ->questionRepository
+            ->findAllQuestionAndCountReponse();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

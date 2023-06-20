@@ -52,11 +52,12 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllQuestion1AndQuestion2Count(): array
+    public function findAllQuestionAndCountReponse(): array
     {
         return $this
             ->createQueryBuilder('q')
             ->select('
+            
             COUNT(q.email) AS email_count,
             SUM(CASE WHEN q.question1 = 1 THEN 1 ELSE 0 END) AS question1_1_count,
             SUM(CASE WHEN q.question1 = 2 THEN 1 ELSE 0 END) AS question1_2_count,
@@ -69,7 +70,16 @@ class QuestionRepository extends ServiceEntityRepository
             ')
         ->getQuery()
         ->getArrayResult();
-}
+    }
+    public function findAllCommentFromQuestions() : array
+    {
+        return $this
+            ->createQueryBuilder('q')
+            ->select('q.question3')
+            ->where('q.question3 IS NOT NULL')
+            ->getQuery()
+            ->getArrayResult();
+    }
 
 
 
