@@ -18,6 +18,7 @@ final class QuestionRepositoryTest extends KernelTestCase
 
     private ?QuestionRepository $questionRepository = null;
 
+
     protected function setUp(): void
     {
         $kernel = self::bootKernel();
@@ -105,30 +106,123 @@ final class QuestionRepositoryTest extends KernelTestCase
     }
 
 
-    public function findAllQuestionAndCountReponse(): array
+    public function findAllQuestionAndCountReponseDataProvider(): array
     {
+
         return [
-            ' test of you want' => [
-                1,
-                2,
+            'test_1' => [
+                'questions' => [
+                    'question_1' => [
+                        'email' => 'test1_question1@example.com',
+                        'question1' => 3,
+                        'question2' => false
+                    ],
+                    'question_2' => [
+                        'email' => 'test1_question2@example.com',
+                        'question1' => 5,
+                        'question2' => true
+                    ],
+                    'question_3' => [
+                        'email' => 'test1_question3@example.com',
+                        'question1' => 5,
+                        'question2' => null
+                    ],
+                    'question_4' => [
+                        'email' => 'test1_question4@example.com',
+                        'question1' => 2,
+                        'question2' => true
+
+                    ],
+                    'question_5' => [
+                        'email' => 'test1_question5@example.com',
+                        'question1' => 4,
+                        'question2' => false
+                    ]
+                ]
             ],
-            'test result you want ' => [
-                2,
-                3,
+            'test_2' => [
+                'questions' => [
+                    'question_1' => [
+                        'email' => 'test2_question1@example.com',
+                        'question1' => 1,
+                        'question2' => false
+                    ],
+                    'question_2' => [
+                        'email' => 'test2_question2@example.com',
+                        'question1' => 4,
+                        'question2' => false
+                    ],
+                    'question_3' => [
+                        'email' => 'test3_question3@example.com',
+                        'question1' => 2,
+                        'question2' => true
+                    ],
+                    'question_4' => [
+                        'email' => 'test1_question4@example.com',
+                        'question1' => 2,
+                        'question2' => null
+
+                    ],
+                    'question_5' => [
+                        'email' => 'test2_question5@example.com',
+                        'question1' => 5,
+                        'question2' => false
+                    ]
+                ],
+                'expected_result' => [
+                    [
+                        'email_count' => 5,
+                        'question1_1_count' => 1,
+                        'question1_2_count' => 2,
+                        'question1_3_count' => 0,
+                        'question1_4_count' => 1,
+                        'question1_5_count' => 1,
+                        'question2_yes_count' => 1,
+                        'question2_no_count' => 3,
+                        'question2_null_count' => 1,
+                    ],
+                ],
             ],
         ];
     }
 
     /**
-     * @dataProvider test_find_all_question_and_count_reponse
+     * @dataProvider findAllQuestionAndCountReponseDataProvider
      */
-    public function test_find_all_question_and_count_reponse()
+    public function test_find_all_question_and_count_result_method_works(array $testData)
     {
-        $questionFromDatabase = $this->commonLogic();
+        foreach ($testData as $key => $testDatum) {
+            [
+                'email' => $email,
+                'question1' => $question1,
+                'question2' => $question2,
+            ] = $testDatum;
 
-        $questionFromDatabase = $this
-            ->questionRepository
-            ->findAllQuestionAndCountReponse();
+            $question = new Question(
+                email: $email,
+                question1: $question1,
+                question2: $question2
+            );
+
+            if ($key !== 'question_5') {
+                $this
+                    ->questionRepository
+                    ->save(
+                        entity: $question
+                    );
+
+                continue;
+            }
+
+            $this
+                ->questionRepository
+                ->save(
+                    entity: $question,
+                    flush: true
+                );
+        }
+
+        dd('stop');
     }
 }
 
